@@ -2,7 +2,15 @@
 
 // Complete this algo
 const minJumps = arr => {
+  let jumps = 0;
+  let arrIdx = arr.length-1;
 
+  while (arrIdx > 0) {
+    let newIdx = helperFunc(arr.slice(0, arrIdx+1));
+    jumps++;
+    arrIdx = newIdx;
+  };
+  return jumps;
 };
 
 const helperFunc = function (arr){ //[1, 1]
@@ -16,8 +24,9 @@ const helperFunc = function (arr){ //[1, 1]
     }
   }
   return minIndex;
+};
 
-}
+
 
 module.exports = minJumps
 
